@@ -8,10 +8,17 @@ const createNewProduct = async (req, res) => {
 
 const getAllProducts = async (_req, res) => {
     const products = await productsService.getAllProducts();
-    return res.status(200).json({ products });
+    return res.status(201).json({ products });
+};
+
+const getById = async (req, res) => {
+    const { id } = req.params;
+    const product = await productsService.getById(id);
+    return res.status(200).json(product);
 };
 
 module.exports = {
     createNewProduct,
     getAllProducts,
+    getById,
 };
