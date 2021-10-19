@@ -1,10 +1,11 @@
 const express = require('express');
-const productsController = require('../controllers/productsController');
+const { createNewProduct, getAllProducts } = require('../controllers/productsController');
+const { validateProductFields } = require('../validations/productValidations');
 
 const router = express.Router();
 
 /* PRODUCTS ROUTES */
-router.post('/', productsController.createNewProduct);
-router.get('/', productsController.getAllProducts);
+router.post('/', validateProductFields, createNewProduct);
+router.get('/', getAllProducts);
 
 module.exports = router;
