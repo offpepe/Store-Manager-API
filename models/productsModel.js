@@ -21,8 +21,19 @@ const getById = async (id) => {
     return result;
 };
 
+const updateProduct = async (id, name, quantity) => {
+    const db = await conn();
+    const result = await db.collection(coll).findOneAndUpdate(
+        { _id: ObjectId(id) },
+        { $set: { name, quantity } },
+        { returnDocument: 'after' },
+    );
+    return result;
+};
+
 module.exports = {
     createNewProduct,
     getAllProducts,
     getById,
+    updateProduct,
 };
