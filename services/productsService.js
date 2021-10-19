@@ -6,6 +6,12 @@ const createNewProduct = async (name, quantity) => {
     return { _id, name, quantity };
 };
 
+const getAllProducts = async () => {
+    const result = await productsModel.getAllProducts();
+    return result;
+};
+
 module.exports = {
     createNewProduct,
+    getAllProducts,
 };
