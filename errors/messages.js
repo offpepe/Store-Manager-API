@@ -15,4 +15,8 @@ module.exports = {
         code: 'invalid_data',
         message: '"quantity" must be a number',
     },
+    invalidId: {
+        code: 'invalid_data',
+        message: 'Wrong id format',
+    },
 };
