@@ -16,8 +16,9 @@ const validateProductFields = async (req, res, next) => {
     if (typeof quantity !== 'number') {
       return res.status(422).json({ err: error.invalidQtdType });
     }
+    next();
 };
 
 module.exports = {
     validateProductFields,
-}
+};
