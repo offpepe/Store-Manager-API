@@ -8,4 +8,9 @@ module.exports = {
         const result = await db.collection(coll).insertOne({ itensSold: products });
         return result.ops[0];
     },
+    getAllSales: async () => {
+        const db = await conn();
+        const result = await db.collection(coll).find().toArray();
+        return result;
+    },
 };
