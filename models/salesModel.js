@@ -19,4 +19,13 @@ module.exports = {
         const result = await db.collection(coll).find({ _id: ObjectId(id) }).toArray();
         return result;
     },
+    updateSale: async (id, products) => {
+        const db = await conn();
+        const result = await db.collection(coll).findOneAndUpdate(
+            { _id: ObjectId(id) },
+            { $set: { itensSold: products } },
+            { returnDocument: 'after' },
+        );
+        return result;
+    },
 };

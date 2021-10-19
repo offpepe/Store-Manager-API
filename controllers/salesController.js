@@ -17,4 +17,10 @@ module.exports = {
         if (!sale) return res.status(404).json({ err: error.saleNotFound });
         return res.status(200).json(sale);
     },
+    updateSale: async (req, res) => {
+        const { id } = req.params;
+        const products = req.body;
+        const updated = await salesService.updateSale(id, products);
+        return res.status(200).json(updated);
+    },
 };

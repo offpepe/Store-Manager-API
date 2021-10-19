@@ -13,4 +13,8 @@ module.exports = {
         const result = await salesModel.getSalesById(id);
         return result[0];
     },
+    updateSale: async (id, products) => {
+        const updated = await salesModel.updateSale(id, products);
+        return updated.value;
+    },
 };
