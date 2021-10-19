@@ -10,6 +10,7 @@ module.exports = {
         if (hasInvalidId) return res.status(422).json({ err: error.invalidIdOrQTD });
         
         if (hasInvalidQTD) return res.status(422).json({ err: error.invalidIdOrQTD });
+        
         next();
     },
     validateID: async (req, res, next) => {
