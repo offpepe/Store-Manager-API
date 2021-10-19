@@ -28,4 +28,12 @@ module.exports = {
         );
         return result;
     },
+    deleteSale: async (id) => {
+        const db = await conn();
+        const result = await db.collection(coll).findOneAndDelete(
+            { _id: ObjectId(id) },
+            { returnDocument: 'before' },
+        );
+        return result;
+    },
 };

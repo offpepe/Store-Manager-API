@@ -17,4 +17,8 @@ module.exports = {
         const updated = await salesModel.updateSale(id, products);
         return updated.value;
     },
+    deleteSale: async (id) => {
+        const deleted = await salesModel.deleteSale(id);
+        return deleted.value;
+    },
 };
