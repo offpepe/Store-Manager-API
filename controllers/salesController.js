@@ -10,4 +10,9 @@ module.exports = {
         const sales = await salesService.getAllSales();
         return res.status(200).json({ sales });
     },
+    getSalesById: async (req, res) => {
+        const { id } = req.params;
+        const sale = await salesService.getSalesById(id);
+        return res.status(200).json(sale);
+    },
 };

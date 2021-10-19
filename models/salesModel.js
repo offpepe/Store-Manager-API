@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const conn = require('../connections/connection');
 
 const coll = 'sales';
@@ -11,6 +12,11 @@ module.exports = {
     getAllSales: async () => {
         const db = await conn();
         const result = await db.collection(coll).find().toArray();
+        return result;
+    },
+    getSalesById: async (id) => {
+        const db = await conn();
+        const result = await db.collection(coll).find({ _id: ObjectId(id) }).toArray();
         return result;
     },
 };

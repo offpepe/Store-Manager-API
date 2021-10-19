@@ -9,4 +9,8 @@ module.exports = {
         const result = await salesModel.getAllSales();
         return result;
     },
+    getSalesById: async (id) => {
+        const result = await salesModel.getSalesById(id);
+        return result[0];
+    },
 };
