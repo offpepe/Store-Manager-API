@@ -19,4 +19,8 @@ module.exports = {
         code: 'invalid_data',
         message: 'Wrong id format',
     },
+    invalidIdOrQTD: {
+        code: 'invalid_data',
+        message: 'Wrong product ID or invalid quantity',
+    },
 };
