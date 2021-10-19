@@ -17,6 +17,17 @@ const validateProductFields = async (req, res, next) => {
     next();
 };
 
+const validateUpdateFields = async (req, res, next) => {
+    const { name, quantity } = req.body;
+    if (name.length < 5) return res.status(422).json({ err: error.invalidName });    
+   
+    if (quantity < 1) return res.status(422).json({ err: error.invalidQtd });
+   
+    if (typeof quantity !== 'number') return res.status(422).json({ err: error.invalidQtdType });
+    
+    next();
+};
+
 const validateId = (req, res, next) => {
     const { id } = req.params;
     if (!ObjectId.isValid(id)) return res.status(422).json({ err: error.invalidId });
@@ -25,5 +36,6 @@ const validateId = (req, res, next) => {
 
 module.exports = {
     validateProductFields,
+    validateUpdateFields,
     validateId,
 };

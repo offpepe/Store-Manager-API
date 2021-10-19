@@ -14,7 +14,14 @@ module.exports = {
     },
     validateID: async (req, res, next) => {
         const { id } = req.params;        
-        if (!ObjectId.isValid(id)) return res.status(422).json({ err: error.invalidId });        
+        if (!ObjectId.isValid(id)) {
+          return res.status(422).json({ err: error.invalidSaleId });
+        }
+        next();
+    },
+    validateIdAsNotFound: async (req, res, next) => {
+        const { id } = req.params;        
+        if (!ObjectId.isValid(id)) return res.status(404).json({ err: error.saleNotFound });        
         next();
     },
 };

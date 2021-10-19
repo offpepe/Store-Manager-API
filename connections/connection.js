@@ -5,15 +5,17 @@ const OPTIONS = {
   useUnifiedTopology: true,
 };
 
-const MONGO_DB_URL = process.env.DB_URI || 'mongodb://mongodb:27017/StoreManager';
+const MONGO_DB_URL = 'mongodb://localhost:27017/StoreManager';
 const DB_NAME = 'StoreManager';
 
-const connection = () => MongoClient
-  .connect(MONGO_DB_URL, OPTIONS)
-  .then((conn) => conn.db(DB_NAME))
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+let db;
+
+const connection = () => (db
+    ? Promise.resolve(db)
+    : MongoClient.connect(MONGO_DB_URL, OPTIONS)
+      .then((conn) => { 
+        db = conn.db(DB_NAME);
+        return db;
+      }));
 
 module.exports = connection;
