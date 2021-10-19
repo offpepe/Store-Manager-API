@@ -11,13 +11,14 @@ const {
     validateID,
     validateIdAsNotFound,
  } = require('../validations/salesValiations');
+const { createSaleTrigger, deleteSaleTrigger } = require('../triggers/sales');
 
 const router = express.Router();
 
 router.get('/', getAllSales);
 router.get('/:id', validateIdAsNotFound, getSalesById);
-router.post('/', validateNewProduct, createNewSale);
-router.put('/:id', validateID, validateNewProduct, updateSale);
-router.delete('/:id', validateID, deleteSale);
+router.post('/', validateNewProduct, createSaleTrigger, createNewSale);
+router.put('/:id', validateID, validateNewProduct, createSaleTrigger, updateSale);
+router.delete('/:id', validateID, deleteSaleTrigger, deleteSale);
 
 module.exports = router;

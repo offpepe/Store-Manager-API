@@ -31,4 +31,12 @@ module.exports = {
         code: 'invalid_data',
         message: 'Wrong sale ID format',
     },
+    productNotFound: {
+        code: 'not_found',
+        message: 'Product not found',
+    },
+    outOfStock: {
+        code: 'stock_problem',
+        message: 'Such amount is not permitted to sell',
+    },
 };
