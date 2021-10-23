@@ -5,7 +5,8 @@ const OPTIONS = {
   useUnifiedTopology: true,
 };
 
-const MONGO_DB_URL = `mongodb+srv://offpepe:<${process.env.DB_PASSWORD}>@mongocluster.oex1m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+console.log(process.env.DB_PASSWORD);
+const MONGO_DB_URL = `mongodb+srv://offpepe:${process.env.DB_PASSWORD}@mongocluster.oex1m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const DB_NAME = 'StoreManager';
 
 let db;
