@@ -1,7 +1,7 @@
 {
-  "name": "sd-0x-store-manager",
+  "name": "store-manager-api",
   "version": "1.0.0",
-  "description": "Simple CRUD to sales and products",
+  "description": "CRUD API to management of Store",
   "main": "index.js",
   "scripts": {
     "test": "jest --runInBand",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tryber/sd-02-project-store-manager.git"
+    "url": "git+https://github.com/offpepe/Store-Manager-API.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tryber/sd-02-project-store-manager/issues"
+    "url": "https://github.com/offpepe/Store-Manager-API/issues"
   },
-  "homepage": "https://github.com/tryber/sd-02-project-store-manager#readme",
+  "homepage": "https://github.com/offpepe/Store-Manager-API#readme",
   "dependencies": {
     "@hapi/boom": "^9.1.0",
     "@hapi/joi": "^17.1.1",
