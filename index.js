@@ -4,10 +4,7 @@ const salesRouter = require('./server/salesRoutes');
 
 const PORT = process.env.PORT || 3000;
 
-// não remova esse endpoint, e para o avaliador funcionar
-app.get('/', (_request, response) => {
-  response.send();
-});
+app.get('/', (_req, res) => res.status(200).send('TO INFINITY AND BEYOND 🐱‍🚀🚀🚀🚀🚀'))
 
 app.use('/products', productRouter);
 app.use('/sales', salesRouter);
